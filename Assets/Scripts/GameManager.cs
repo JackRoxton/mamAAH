@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Console Console;
 
+    float NightTimer = 120;
+
     private static GameManager instance;
     public static GameManager Instance
     {
@@ -38,4 +40,25 @@ public class GameManager : MonoBehaviour
     {
         Console.SwitchState();
     }
+
+    public float GetTime()
+    {
+        return NightTimer;
+    }
+
+    void Update()
+    {
+        NightTimer -= Time.deltaTime;
+        if(NightTimer <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    void GameOver()
+    {
+        Time.timeScale = 0;
+        UIManager.Instance.GameOver();
+    }
+
 }

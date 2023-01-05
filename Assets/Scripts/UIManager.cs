@@ -5,11 +5,22 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject MainMenuPanel = null;
+    [SerializeField]
+    GameObject GamePanel = null;
+    [SerializeField]
+    GameObject GameOverPanel = null;
+
 
     [SerializeField]
     Button LightButton = null;
     [SerializeField]
     Button DSButton = null;
+    [SerializeField]
+    Button GameOverButton = null;
+
+
 
     private static UIManager instance;
     public static UIManager Instance
@@ -34,6 +45,9 @@ public class UIManager : MonoBehaviour
     {
         LightButton.onClick.AddListener(SwitchLight);
         DSButton.onClick.AddListener(SwitchConsole);
+        //GameOverButton.onClick.AddListener();
+
+        GameOverPanel.SetActive(false);
     }
 
     void SwitchLight()
@@ -44,5 +58,16 @@ public class UIManager : MonoBehaviour
     void SwitchConsole()
     {
         GameManager.Instance.SwitchConsole();
+    }
+
+    void BackToMenu()
+    {
+
+    }
+
+    public void GameOver()
+    {
+        GamePanel.SetActive(false);
+        GameOverPanel.SetActive(true);
     }
 }
