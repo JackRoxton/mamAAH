@@ -13,7 +13,7 @@ public class Mum_script : MonoBehaviour
     private MumFSM_PatrolState patrolState = new MumFSM_PatrolState();
     private MumFSM_WatchState watchState = new MumFSM_WatchState();
     private MumFSM_StandbyState standbyState = new MumFSM_StandbyState();
-    public int speed = 100;
+    public int speed = 2;
 
     private Coroutine checkCoroutine;
     [HideInInspector] public bool canHear;
@@ -42,6 +42,7 @@ public class Mum_script : MonoBehaviour
                 AIstate = patrolState;
                 checkCoroutine = StartCoroutine(Check());
                 GameManager.Instance.MumIsGone();
+                speed = 2;
                 break;
             case MumState.Standby:
                 if (checkCoroutine != null) StopCoroutine(checkCoroutine);
@@ -60,6 +61,7 @@ public class Mum_script : MonoBehaviour
         StopCoroutine(checkCoroutine);
         patrolState.MoveToDoor();
         GameManager.Instance.MumIsComing();
+        speed = 3;
     }
     
     // Coming, watch you

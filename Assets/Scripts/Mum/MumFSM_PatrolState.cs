@@ -33,6 +33,7 @@ public class MumFSM_PatrolState : FSM_BaseState
                 mum.canSee = true;
                 GameManager.Instance.MumIsGone();
                 if (GameManager.Instance.GetConsoleState()) mum.ChangeState(MumState.Standby);
+                if (GameManager.Instance.GetLightState()) mum.ComingToWatchYou();
             }
             return;
         } // return
@@ -59,7 +60,7 @@ public class MumFSM_PatrolState : FSM_BaseState
 
     private void ChangeDestination()
     {
-        moveTo = moveTo == hideLeft ? hideRight : hideLeft;
+        moveTo = Random.Range(0, 2) == 0 ? hideRight : hideLeft;        
     }
     public void MoveToDoor()
     {
