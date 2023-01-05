@@ -567,6 +567,11 @@ PrefabInstance:
       propertyPath: GameOverPanel
       value: 
       objectReference: {fileID: 95672920}
+    - target: {fileID: 9183959156387320713, guid: 3fbb11fa70a430c48817a6900bd84e4c,
+        type: 3}
+      propertyPath: startInMenu
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9183959156387320714, guid: 3fbb11fa70a430c48817a6900bd84e4c,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -9,7 +9,7 @@ public class Console : MonoBehaviour
 
     void Start()
     {
-        
+        //GameManager.Instance.Console = this;
     }
 
     void Update()
