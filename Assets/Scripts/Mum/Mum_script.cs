@@ -7,7 +7,9 @@ public class Mum_script : MonoBehaviour
     [SerializeField] private GameObject hideLeft;
     [SerializeField] private GameObject hideRight;
     [SerializeField] private GameObject door;
-    private MumFSM_BastState state;
+
+    // AI
+    private MumFSM_BastState AIstate;
     private MumFSM_PatrolState patrolState = new MumFSM_PatrolState();
     private MumFSM_CheckState checkState = new MumFSM_CheckState();
     public int speed = 100;
@@ -24,7 +26,7 @@ public class Mum_script : MonoBehaviour
 
     private void Update()
     {
-        state.Update(this);
+        AIstate.Update(this);
     }
 
     public void ChangeState(MumState newState)
@@ -32,21 +34,22 @@ public class Mum_script : MonoBehaviour
         switch (newState)    
         {
             case MumState.Patrol:
-                state = patrolState;
+                AIstate = patrolState;
                 checkCoroutine = StartCoroutine(Check());
                 break;
             case MumState.Standby:
                 break;
             case MumState.Check:
-                state = checkState;
+                AIstate = checkState;
                 break;
         }
-        state.OnStart(this);
+        AIstate.OnStart(this);
     }
 
+    // Coming, watch you
     IEnumerator Check()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(2);
         GetComponent<SpriteRenderer>().color = new Color(255, 134, 0);
         patrolState.CheckDoor();
     }

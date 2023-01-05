@@ -24,7 +24,7 @@ public class MumFSM_PatrolState : MumFSM_BastState
         Vector2 normalizedMove = move.normalized * mum.speed * Time.deltaTime;
         mum.transform.position = new Vector3(
             mum.transform.position.x + normalizedMove.x,
-            mum.transform.position.y + normalizedMove.y, 0);
+            mum.transform.position.y + normalizedMove.y, 1);
         if (move.magnitude < .1f)
             if (moveTo == door)
                 mum.ChangeState(MumState.Check);
