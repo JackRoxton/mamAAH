@@ -1397,6 +1397,7 @@ MonoBehaviour:
   LightButton: {fileID: 9183959155967918611}
   DSButton: {fileID: 9183959157603764495}
   GameOverButton: {fileID: 9183959157099166489}
+  GameOverText: {fileID: 9183959156200308988}
 --- !u!1 &9183959156531549172
 GameObject:
   m_ObjectHideFlags: 0
