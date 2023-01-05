@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioClip creak = null, wood = null, window = null;
 
-    float ambientTimer = 15;
+    float ambientTimer = 8;
 
     private static AudioManager instance;
     public static AudioManager Instance
@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
         ambientTimer -= Time.deltaTime;
         if (ambientTimer <= 0)
         {
-            ambientTimer = 8;
+            ambientTimer = 8 + Random.Range (-2,3);
             PlayAmbient();
         }
     }

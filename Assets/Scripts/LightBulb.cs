@@ -10,14 +10,32 @@ public class LightBulb : MonoBehaviour
     //état allumé éteint
     public bool lightState = false;
 
+    Animator animator = null;
+
+    float blinkTimer = 8;
+
     void Start()
     {
         GameManager.Instance.Light = this;
+        animator = this.GetComponent<Animator>();
     }
 
     void Update()
     {
-        
+        if (lightState == false)
+            return;
+
+        blinkTimer -= Time.deltaTime;
+        animator.SetFloat("blinkingTimer",blinkTimer);
+        if(blinkTimer <= 0)
+        {
+            blinkTimer = 8 + Random.Range(-2,3);
+        }
+    }
+
+    public void animSetLightIntensity(float intensity)
+    {
+        RoomLight.intensity = intensity;
     }
 
     //allumer et éteindre la lumière

@@ -10,7 +10,7 @@ public class Clock : MonoBehaviour
     GameObject longArm;
 
     //multiplicateur pour les bras de l'horloge
-    float armsMultiplier = 1;
+    public float armsMultiplier = 1;
 
     float timer = 120;
     float shortArmRotation = 0;
