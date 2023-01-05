@@ -17,6 +17,10 @@ public class Console : MonoBehaviour
         
     }
 
+    private void OnMouseUp()
+    {
+        GameManager.Instance.SwitchConsole();
+    }
 
     //allumer et éteindre la lumière
     public void SwitchState()
