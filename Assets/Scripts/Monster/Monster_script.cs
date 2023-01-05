@@ -42,7 +42,11 @@ public class Monster_script : MonoBehaviour
         {
             TV.GetComponent<SpriteRenderer>().color = Color.white;
             transform.localScale = Vector3.one * scaleCurve.Evaluate(advance - 2);
+            Vector3 minusZ = transform.position;
+            minusZ.z = -.9f;
+            transform.position = minusZ;
             if (advance >= 3) GameManager.Instance.GameOver();
+            PostProcessSript.Instance.vignetteValue = (advance - 2);
         }        
     }
 
