@@ -33,11 +33,16 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         LightButton.onClick.AddListener(SwitchLight);
-        //DSButton.onClick.AddListener();
+        DSButton.onClick.AddListener(SwitchConsole);
     }
 
     void SwitchLight()
     {
         GameManager.Instance.SwitchLight();
+    }
+
+    void SwitchConsole()
+    {
+        GameManager.Instance.SwitchConsole();
     }
 }

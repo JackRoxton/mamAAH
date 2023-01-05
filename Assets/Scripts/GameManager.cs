@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     LightBulb Light;
+    [SerializeField]
+    Console Console;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -29,6 +31,11 @@ public class GameManager : MonoBehaviour
 
     public void SwitchLight()
     {
-        Light.SwicthLight();
+        Light.SwitchLight();
+    }
+
+    public void SwitchConsole()
+    {
+        Console.SwitchState();
     }
 }

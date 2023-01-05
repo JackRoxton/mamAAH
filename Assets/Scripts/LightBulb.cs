@@ -19,7 +19,7 @@ public class LightBulb : MonoBehaviour
         
     }
 
-    public void SwicthLight()
+    public void SwitchLight()
     {
         if (lightState)
         {
