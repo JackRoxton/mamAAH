@@ -23,13 +23,11 @@ public class Console : MonoBehaviour
     {
         if (state)
         {
-            Debug.Log("consoleOff");
             this.GetComponent<SpriteRenderer>().color = Color.black;
             state = false;
         }
         else
         {
-            Debug.Log("consoleOn");
             this.GetComponent<SpriteRenderer>().color = Color.white;
             state = true;
         }

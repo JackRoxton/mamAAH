@@ -25,12 +25,14 @@ public class MumFSM_StandbyState : FSM_BaseState
         {
             mum.canSee = false;
             timer -= Time.deltaTime;
+            if (timer < 0) mum.ChangeState(MumState.Patrol);
             if (GameManager.Instance.GetConsoleState()) mum.ChangeState(MumState.Watch);
         }
     }
 
     public void Watch(Mum_script mum)
     {
-        mum.ChangeState(MumState.Watch);
+        if (!mum.canSee)
+            mum.ChangeState(MumState.Watch);
     }
 }

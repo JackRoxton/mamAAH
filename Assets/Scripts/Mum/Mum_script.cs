@@ -16,8 +16,8 @@ public class Mum_script : MonoBehaviour
     public int speed = 100;
 
     private Coroutine checkCoroutine;
-    public bool canHear;
-    public bool canSee;
+    [HideInInspector] public bool canHear;
+    [HideInInspector] public bool canSee;
 
     private void Start()
     {
@@ -31,16 +31,17 @@ public class Mum_script : MonoBehaviour
     private void Update()
     {
         AIstate.Update(this);
-        Debug.Log("canSee : " + canSee);
     }
 
     public void ChangeState(MumState newState)
     {
+        if (newState != MumState.Watch) GameManager.Instance.MumIsGone();
         switch (newState)    
         {
             case MumState.Patrol:
                 AIstate = patrolState;
                 checkCoroutine = StartCoroutine(Check());
+                GameManager.Instance.MumIsGone();
                 break;
             case MumState.Standby:
                 if (checkCoroutine != null) StopCoroutine(checkCoroutine);
@@ -58,25 +59,38 @@ public class Mum_script : MonoBehaviour
     {
         StopCoroutine(checkCoroutine);
         patrolState.MoveToDoor();
+        GameManager.Instance.MumIsComing();
     }
+    
     // Coming, watch you
     IEnumerator Check()
     {
         yield return new WaitForSeconds(12);
         GetComponent<SpriteRenderer>().color = new Color(255, 134, 0);
-        patrolState.MoveToDoor();
+        ChangeState(MumState.Standby);
     }
     
     public void ConsoleMakeNoise()
     {
-        if (!canHear) return;
-        if (AIstate == standbyState) ChangeState(MumState.Watch);
-        else ChangeState(MumState.Standby);
+        if (!canHear || AIstate == watchState) return;
+        if (AIstate == standbyState)
+        {
+            ChangeState(MumState.Watch);
+            return;
+        }
+        if (!patrolState.MovingIntoDoor()) ChangeState(MumState.Standby);
     }
 
     public void LightIsLit()
     {
-        if (!canSee) return;
+        if (!canSee || AIstate == watchState) return;
+        if (AIstate == standbyState)
+        {
+            ChangeState(MumState.Patrol);
+            ComingToWatchYou();
+            return;
+        }
+        if (AIstate == patrolState && !patrolState.MovingIntoDoor())
         ComingToWatchYou();
     }
 }

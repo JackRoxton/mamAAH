@@ -10,7 +10,10 @@ public class MumFSM_WatchState : FSM_BaseState
     {
         timer = 2.0f;
         mum.GetComponent<SpriteRenderer>().color = Color.red;
-        mum.transform.Translate(-Vector3.forward);
+        mum.transform.Translate(-Vector3.forward * 3);
+        mum.canSee = true;
+        mum.canHear = true;
+        GameManager.Instance.MumIsComing();
     }
 
     public override void Update(Mum_script mum)
@@ -18,7 +21,7 @@ public class MumFSM_WatchState : FSM_BaseState
         timer -= Time.deltaTime;
         if (timer < 0)
             mum.ChangeState(MumState.Patrol);
-        if (timer < 1)
+        if (timer < 1.6f)
             if (GameManager.Instance.isVulnerable())
                 GameManager.Instance.GameOver();
     }

@@ -31,6 +31,7 @@ public class MumFSM_PatrolState : FSM_BaseState
             {
                 mum.canHear = true;
                 mum.canSee = true;
+                GameManager.Instance.MumIsGone();
                 if (GameManager.Instance.GetConsoleState()) mum.ChangeState(MumState.Standby);
             }
             return;
@@ -63,5 +64,9 @@ public class MumFSM_PatrolState : FSM_BaseState
     public void MoveToDoor()
     {
         moveTo = door;
+    }
+    public bool MovingIntoDoor()
+    {
+        return moveTo == door;
     }
 }

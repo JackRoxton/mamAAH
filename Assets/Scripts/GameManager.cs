@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     public Console Console;
     [SerializeField]
     Mum_script mum;
-    
+    [SerializeField]
+    Monster_script monster;
 
     float NightTimer = 120;
 
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         Light.SwitchLight();
         if (Light.lightState) mum.LightIsLit();
+        monster.UpdateLight(Light.lightState);
     }
 
     //voir si la lumière est allumée
@@ -63,6 +65,17 @@ public class GameManager : MonoBehaviour
     public bool isVulnerable()
     {
         return GetConsoleState() || GetLightState();
+    }
+
+    public void MumIsComing()
+    {
+        monster.MumIsComing(true);
+    }
+
+    public void MumIsGone()
+    {
+        monster.MumIsComing(false);
+        monster.UpdateLight(GetLightState());
     }
 
     //voir le timer
