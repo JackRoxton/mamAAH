@@ -10,9 +10,9 @@ public class Monster_script : MonoBehaviour
     [SerializeField] private GameObject nextToTheBed;
     [SerializeField] private GameObject OnTheBed;
     [SerializeField] private GameObject TV;
-    
-    private float advance = 0; // From 0 to 3
-    [SerializeField] private float advanceRate = .6f;
+
+    [HideInInspector] public float advance = 0; // From 0 to 3
+    private float advanceRate = .6f;
     [HideInInspector] public float advanceTarget = 0;
 
     public bool mumIsHere = false;

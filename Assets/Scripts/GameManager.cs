@@ -78,6 +78,15 @@ public class GameManager : MonoBehaviour
         monster.UpdateLight(GetLightState());
     }
 
+    public void MumIsWatching()
+    {
+        if (monster.advance > 2)
+        {
+            Debug.Log("VICTORY");
+            //VICTORY
+        }
+    }
+
     //voir le timer
     public float GetTime()
     {
@@ -88,6 +97,7 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("MainScene");
+        Time.timeScale = 1;
     }
 
     //retour au  menu

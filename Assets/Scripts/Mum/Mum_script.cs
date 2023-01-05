@@ -72,12 +72,9 @@ public class Mum_script : MonoBehaviour
     
     public void ConsoleMakeNoise()
     {
-        if (!canHear || AIstate == watchState) return;
-        if (AIstate == standbyState)
-        {
-            ChangeState(MumState.Watch);
-            return;
-        }
+        if (!canHear) return;
+        if (AIstate == watchState)  return;
+        if (AIstate == standbyState) return;
         if (!patrolState.MovingIntoDoor()) ChangeState(MumState.Standby);
     }
 

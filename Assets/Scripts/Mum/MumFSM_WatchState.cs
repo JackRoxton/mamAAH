@@ -14,6 +14,7 @@ public class MumFSM_WatchState : FSM_BaseState
         mum.canSee = true;
         mum.canHear = true;
         GameManager.Instance.MumIsComing();
+        GameManager.Instance.MumIsWatching();
     }
 
     public override void Update(Mum_script mum)
