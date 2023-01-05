@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    LightBulb Light;
-    [SerializeField]
-    Console Console;
+    public LightBulb Light;
+    public Console Console;
 
     float NightTimer = 120;
 
