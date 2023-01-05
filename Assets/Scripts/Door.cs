@@ -5,21 +5,20 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [SerializeField]
-    Sprite Closed = null, Opened = null;
-
-    //état de la porte false à fermé
-    public bool doorState = false;
-
+    Sprite Closed = null, SOpened = null, Opened = null;
 
     public void Open()
     {
         this.GetComponent<SpriteRenderer>().sprite = Opened;
-        doorState = true;
+    }
+
+    public void SOpen()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = SOpened;
     }
 
     public void Close()
     {
         this.GetComponent<SpriteRenderer>().sprite = Closed;
-        doorState = false;
     }
 }
