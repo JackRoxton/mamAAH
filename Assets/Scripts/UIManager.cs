@@ -43,6 +43,15 @@ public class UIManager : MonoBehaviour
             Destroy(instance.gameObject);
         instance = this;
         DontDestroyOnLoad(this);
+
+        if (startInMenu)
+        {
+            GamePanel.SetActive(false);
+        }
+        else
+        {
+            MainMenuPanel.SetActive(false);
+        }
     }
 
     private void Start()
@@ -53,14 +62,6 @@ public class UIManager : MonoBehaviour
         PlayButton.onClick.AddListener(Play);
 
         GameOverPanel.SetActive(false);
-        if (startInMenu)
-        {
-            GamePanel.SetActive(false);
-        }
-        else
-        {
-            MainMenuPanel.SetActive(false);
-        }
     }
 
     //allumer et éteindre la lumière
@@ -81,14 +82,15 @@ public class UIManager : MonoBehaviour
         GamePanel.SetActive(false);
         GameOverPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
+        GameManager.Instance.BackToMenu();
     }
 
     //lancer la partie
     void Play()
     {
-        GameManager.Instance.Play();
         MainMenuPanel.SetActive(false);
         GamePanel.SetActive(true);
+        GameManager.Instance.Play();
     }
 
     //fin de jeu
