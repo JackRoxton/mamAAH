@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    LightBulb Light;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -23,5 +25,10 @@ public class GameManager : MonoBehaviour
             Destroy(instance.gameObject);
         instance = this;
         DontDestroyOnLoad(this);
+    }
+
+    public void SwitchLight()
+    {
+        Light.SwicthLight();
     }
 }

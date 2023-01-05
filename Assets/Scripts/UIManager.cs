@@ -6,6 +6,11 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
 
+    [SerializeField]
+    Button LightButton = null;
+    [SerializeField]
+    Button DSButton = null;
+
     private static UIManager instance;
     public static UIManager Instance
     {
@@ -23,5 +28,16 @@ public class UIManager : MonoBehaviour
             Destroy(instance.gameObject);
         instance = this;
         DontDestroyOnLoad(this);
+    }
+
+    private void Start()
+    {
+        LightButton.onClick.AddListener(SwitchLight);
+        //DSButton.onClick.AddListener();
+    }
+
+    void SwitchLight()
+    {
+        GameManager.Instance.SwitchLight();
     }
 }
