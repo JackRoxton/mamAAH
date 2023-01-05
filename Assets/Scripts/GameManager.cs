@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
     }
 
     //fin de jeu
-    void GameOver()
+    public void GameOver()
     {
         Time.timeScale = 0;
         UIManager.Instance.GameOver();

@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomLight: {fileID: 1397744109}
+  lightState: 1
 --- !u!4 &303827994
 Transform:
   m_ObjectHideFlags: 0
@@ -447,7 +448,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.17888926, g: 0.18270569, b: 0.18867922, a: 0}
+  m_BackGroundColor: {r: 0.043140177, g: 0.008009966, b: 0.33962262, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -759,7 +760,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5d4fa2fdecdadcb468baaedc792cc439, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 43cef33d6ebc3ad47a1d3fe71f15061c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -779,7 +780,7 @@ Transform:
   m_GameObject: {fileID: 1456975357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.14, y: 1.64, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1030,8 +1031,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26e7ff9108d3be4fbac639825cb0f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startInMenu: 0
+  MainMenuPanel: {fileID: 0}
+  GamePanel: {fileID: 0}
+  GameOverPanel: {fileID: 0}
+  PlayButton: {fileID: 0}
   LightButton: {fileID: 1490330057}
   DSButton: {fileID: 1241137712}
+  GameOverButton: {fileID: 0}
 --- !u!4 &1522608182
 Transform:
   m_ObjectHideFlags: 0
@@ -1058,6 +1065,11 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 1456975357}
+    - target: {fileID: 4331016822082939643, guid: 1b34c86576601a142903410159bbff06,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4331016822512860094, guid: 1b34c86576601a142903410159bbff06,
         type: 3}
       propertyPath: m_Name

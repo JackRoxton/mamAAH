@@ -10,12 +10,16 @@ public class MumFSM_CheckState : MumFSM_BastState
     {
         timer = 2.0f;
         mum.GetComponent<SpriteRenderer>().color = Color.red;
+        mum.transform.Translate(-Vector3.forward);
     }
 
     public override void Update(Mum_script mum)
     {
         timer -= Time.deltaTime;
         if (timer < 0)
-            mum.ChangeState(MumState.Patrol);    
+            mum.ChangeState(MumState.Patrol);
+        if (timer < 1)
+            if (GameManager.Instance.GetLightState())
+                GameManager.Instance.GameOver();
     }
 }
