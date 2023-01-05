@@ -9,7 +9,6 @@ public class MumFSM_WatchState : FSM_BaseState
     public override void OnStart(Mum_script mum)
     {
         timer = 2.0f;
-        mum.GetComponent<SpriteRenderer>().color = Color.red;
         mum.transform.Translate(-Vector3.forward * 3);
         mum.canSee = true;
         mum.canHear = true;

@@ -7,6 +7,13 @@ public class Mum_script : MonoBehaviour
     [SerializeField] private GameObject hideLeft;
     [SerializeField] private GameObject hideRight;
     [SerializeField] private GameObject door;
+
+    public Sprite doorOpen;
+    public Sprite doorClosed;
+    
+    public Sprite mumGood;
+    public Sprite mumMad;
+
     [SerializeField] private AnimationCurve scaleCurve;
 
     // AI
@@ -39,7 +46,12 @@ public class Mum_script : MonoBehaviour
 
     public void ChangeState(MumState newState)
     {
-        if (newState != MumState.Watch) GameManager.Instance.MumIsGone();
+        if (newState != MumState.Watch)
+        {
+            GameManager.Instance.MumIsGone();
+            door.GetComponent<SpriteRenderer>().sprite = doorClosed;
+            GetComponent<SpriteRenderer>().sprite = mumGood;
+        }
         switch (newState)    
         {
             case MumState.Patrol:
@@ -55,6 +67,8 @@ public class Mum_script : MonoBehaviour
             case MumState.Watch:
                 if (checkCoroutine != null) StopCoroutine(checkCoroutine);
                 AIstate = watchState;
+                door.GetComponent<SpriteRenderer>().sprite = doorOpen;
+                GetComponent<SpriteRenderer>().sprite = mumMad;
                 break;
         }
         AIstate.OnStart(this);
@@ -72,7 +86,6 @@ public class Mum_script : MonoBehaviour
     IEnumerator Check()
     {
         yield return new WaitForSeconds(12);
-        GetComponent<SpriteRenderer>().color = new Color(255, 134, 0);
         ChangeState(MumState.Standby);
     }
     

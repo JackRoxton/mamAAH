@@ -11,7 +11,6 @@ public class MumFSM_StandbyState : FSM_BaseState
     {
         mum.canHear = true;
         timer = 5.0f;
-        mum.GetComponent<SpriteRenderer>().color = new Color(255, 134, 0);
     }
 
     public override void Update(Mum_script mum)

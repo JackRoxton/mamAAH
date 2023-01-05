@@ -15,7 +15,6 @@ public class MumFSM_PatrolState : FSM_BaseState
 
     public override void OnStart(Mum_script mum)
     {
-        mum.GetComponent<SpriteRenderer>().color = Color.green;
         mum.canHear = true;
         mum.canSee = true;
         ChangeDestination();
