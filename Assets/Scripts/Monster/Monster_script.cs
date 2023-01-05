@@ -10,6 +10,7 @@ public class Monster_script : MonoBehaviour
     [SerializeField] private GameObject nextToTheBed;
     [SerializeField] private GameObject OnTheBed;
     [SerializeField] private GameObject TV;
+    [SerializeField] private AnimationCurve scaleCurve;
 
     [HideInInspector] public float advance = 0; // From 0 to 3
     private float advanceRate = .6f;
@@ -40,7 +41,7 @@ public class Monster_script : MonoBehaviour
         else
         {
             TV.GetComponent<SpriteRenderer>().color = Color.white;
-            transform.localScale = Vector3.one * Mathf.Lerp(3, 10, advance - 2);
+            transform.localScale = Vector3.one * scaleCurve.Evaluate(advance - 2);
             if (advance >= 3) GameManager.Instance.GameOver();
         }        
     }

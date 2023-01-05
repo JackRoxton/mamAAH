@@ -7,6 +7,7 @@ public class Mum_script : MonoBehaviour
     [SerializeField] private GameObject hideLeft;
     [SerializeField] private GameObject hideRight;
     [SerializeField] private GameObject door;
+    [SerializeField] private AnimationCurve scaleCurve;
 
     // AI
     private FSM_BaseState AIstate;
@@ -31,6 +32,9 @@ public class Mum_script : MonoBehaviour
     private void Update()
     {
         AIstate.Update(this);
+        float distanceBtwHides = Vector3.Distance(hideLeft.transform.position, hideRight.transform.position);
+        float distanceToRight = Vector3.Distance(transform.position, hideRight.transform.position);
+        transform.localScale = Vector3.one * scaleCurve.Evaluate(distanceToRight / distanceBtwHides);
     }
 
     public void ChangeState(MumState newState)
