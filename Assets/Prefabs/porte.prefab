@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7459320353131188702}
   - component: {fileID: 7459320353131188689}
   - component: {fileID: 7459320353131188703}
+  - component: {fileID: 7066550891295267160}
   m_Layer: 0
   m_Name: porte
   m_TagString: Untagged
@@ -95,5 +96,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Closed: {fileID: 21300000, guid: 43cef33d6ebc3ad47a1d3fe71f15061c, type: 3}
-  Opened: {fileID: 21300000, guid: 125cad383018ec146848dcf1ad254348, type: 3}
+  SOpened: {fileID: 21300000, guid: 125cad383018ec146848dcf1ad254348, type: 3}
+  Opened: {fileID: 21300000, guid: 3fe8cc4a00840574f8db4a287f90c52a, type: 3}
   doorState: 0
+--- !u!111 &7066550891295267160
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459320353131188688}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
