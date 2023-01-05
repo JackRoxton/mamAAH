@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
         NightTimer -= Time.deltaTime;
         if(NightTimer <= 0)
         {
-            GameOver();
+            GameWon();
         }
     }
 
@@ -121,6 +121,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         UIManager.Instance.GameOver();
+    }
+
+    public void GameWon()
+    {
+        Time.timeScale = 0;
+        UIManager.Instance.GameWon();
     }
 
 }
