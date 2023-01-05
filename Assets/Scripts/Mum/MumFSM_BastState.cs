@@ -6,7 +6,7 @@ public enum MumState
 {
     Patrol, 
     Standby,
-    Check
+    Watch
 }
 
 public abstract class MumFSM_BastState

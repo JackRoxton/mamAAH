@@ -5,7 +5,7 @@ using UnityEngine;
 public class Console : MonoBehaviour
 {
     //état allumé éteint
-    bool state = false;
+    public bool state = false;
 
     void Start()
     {

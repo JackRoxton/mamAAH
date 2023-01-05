@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MumFSM_CheckState : MumFSM_BastState
+public class MumFSM_WatchState : MumFSM_BastState
 {
     private float timer = 2.0f;
 
@@ -19,7 +19,7 @@ public class MumFSM_CheckState : MumFSM_BastState
         if (timer < 0)
             mum.ChangeState(MumState.Patrol);
         if (timer < 1)
-            if (GameManager.Instance.GetLightState())
+            if (GameManager.Instance.isVulnerable())
                 GameManager.Instance.GameOver();
     }
 }

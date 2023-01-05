@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     LightBulb Light;
     [SerializeField]
     Console Console;
+    [SerializeField]
+    Mum_script mum;
+    
 
     float NightTimer = 120;
 
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
     public void SwitchLight()
     {
         Light.SwitchLight();
+        if (Light.lightState) mum.LightIsLit();
     }
 
     //voir si la lumière est allumée
@@ -47,6 +51,18 @@ public class GameManager : MonoBehaviour
     public void SwitchConsole()
     {
         Console.SwitchState();
+        if (Console.state) mum.ConsoleMakeNoise();
+    }
+
+    //voir si la console est allumée
+    public bool GetConsoleState()
+    {
+        return Console.state;
+    }
+
+    public bool isVulnerable()
+    {
+        return GetConsoleState() || GetLightState();
     }
 
     //voir le timer
