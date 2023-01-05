@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField]
+    AudioSource source;
+
+    //AudioClip
 
     private static AudioManager instance;
     public static AudioManager Instance
@@ -22,5 +26,12 @@ public class AudioManager : MonoBehaviour
             Destroy(instance.gameObject);
         instance = this;
         DontDestroyOnLoad(this);
+    }
+
+    //playambient
+
+    public void Play()
+    {
+
     }
 }

@@ -25,13 +25,13 @@ public class LightBulb : MonoBehaviour
     {
         if (lightState)
         {
-            RoomLight.intensity = 5;
+            RoomLight.intensity = 0;
             lightState = false;
             this.GetComponent<SpriteRenderer>().color = Color.black;
         }
         else
         {
-            RoomLight.intensity = 500;
+            RoomLight.intensity = 10;
             lightState = true;
             this.GetComponent<SpriteRenderer>().color = Color.yellow;
         }

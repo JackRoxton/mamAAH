@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject MainMenuPanel = null;
     [SerializeField]
+    GameObject CreditsPanel = null;
+    [SerializeField]
     GameObject GamePanel = null;
     [SerializeField]
     GameObject GameOverPanel = null;
@@ -18,11 +20,18 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     Button PlayButton = null;
     [SerializeField]
+    Button CreditsButton = null;
+    [SerializeField]
+    Button CreditsBackButton = null;
+    [SerializeField]
     Button LightButton = null;
     [SerializeField]
     Button DSButton = null;
     [SerializeField]
     Button GameOverButton = null;
+
+    [SerializeField]
+    Text GameOverText = null;
 
 
 
@@ -52,6 +61,7 @@ public class UIManager : MonoBehaviour
         {
             MainMenuPanel.SetActive(false);
         }
+        CreditsPanel.SetActive(false);
     }
 
     private void Start()
@@ -60,6 +70,8 @@ public class UIManager : MonoBehaviour
         DSButton.onClick.AddListener(SwitchConsole);
         GameOverButton.onClick.AddListener(BackToMenu);
         PlayButton.onClick.AddListener(Play);
+        CreditsButton.onClick.AddListener(Credits);
+        CreditsBackButton.onClick.AddListener(CreditsBack);
 
         GameOverPanel.SetActive(false);
     }
@@ -93,9 +105,32 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.Play();
     }
 
-    //fin de jeu
+    //voir les crédits
+    void Credits()
+    {
+        MainMenuPanel.SetActive(false);
+        CreditsPanel.SetActive(true);
+    }
+
+    //enlever les crédits
+    void CreditsBack()
+    {
+        MainMenuPanel.SetActive(true);
+        CreditsPanel.SetActive(false);
+    }
+
+    //mauvaise fin de jeu
     public void GameOver()
     {
+        GameOverText.text = "Dommage, vous vous êtes fait attraper...";
+        GamePanel.SetActive(false);
+        GameOverPanel.SetActive(true);
+    }
+
+    //fin où on a survécu à la nuit
+    public void GameWon()
+    {
+        GameOverText.text = "Félicitations, vous survivez pour cette nuit.";
         GamePanel.SetActive(false);
         GameOverPanel.SetActive(true);
     }

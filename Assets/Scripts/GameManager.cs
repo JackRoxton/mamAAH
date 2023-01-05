@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
     //retour au  menu
     public void BackToMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
