@@ -9,7 +9,14 @@ public enum MumState
     Watch
 }
 
-public abstract class MumFSM_BastState
+public enum MonsterState
+{
+    Wait, 
+    Hide, 
+    Climb
+}
+
+public abstract class FSM_BaseState
 {
     public abstract void Update(Mum_script mum);
     public abstract void OnStart(Mum_script mum);

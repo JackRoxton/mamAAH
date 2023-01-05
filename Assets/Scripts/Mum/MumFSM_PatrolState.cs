@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MumFSM_PatrolState : MumFSM_BastState
+public class MumFSM_PatrolState : FSM_BaseState
 {
     public GameObject hideLeft;
     public GameObject hideRight;

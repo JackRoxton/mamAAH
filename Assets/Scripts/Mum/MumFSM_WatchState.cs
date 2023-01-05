@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MumFSM_WatchState : MumFSM_BastState
+public class MumFSM_WatchState : FSM_BaseState
 {
     private float timer = 2.0f;
 

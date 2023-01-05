@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MumFSM_StandbyState : MumFSM_BastState
+public class MumFSM_StandbyState : FSM_BaseState
 {
     public GameObject door;
     private float timer;

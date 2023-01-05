@@ -9,9 +9,9 @@ public class Mum_script : MonoBehaviour
     [SerializeField] private GameObject door;
 
     // AI
-    private MumFSM_BastState AIstate;
+    private FSM_BaseState AIstate;
     private MumFSM_PatrolState patrolState = new MumFSM_PatrolState();
-    private MumFSM_WatchState checkState = new MumFSM_WatchState();
+    private MumFSM_WatchState watchState = new MumFSM_WatchState();
     private MumFSM_StandbyState standbyState = new MumFSM_StandbyState();
     public int speed = 100;
 
@@ -48,7 +48,7 @@ public class Mum_script : MonoBehaviour
                 break;
             case MumState.Watch:
                 if (checkCoroutine != null) StopCoroutine(checkCoroutine);
-                AIstate = checkState;
+                AIstate = watchState;
                 break;
         }
         AIstate.OnStart(this);
