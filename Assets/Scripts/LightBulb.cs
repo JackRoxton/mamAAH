@@ -7,7 +7,8 @@ public class LightBulb : MonoBehaviour
     [SerializeField]
     Light RoomLight = null;
 
-    bool lightState = true;
+    //état allumé éteint
+    public bool lightState = true;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class LightBulb : MonoBehaviour
         
     }
 
+    //allumer et éteindre la lumière
     public void SwitchLight()
     {
         if (lightState)

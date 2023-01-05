@@ -9,6 +9,9 @@ public class Clock : MonoBehaviour
     [SerializeField]
     GameObject longArm;
 
+    //multiplicateur pour les bras de l'horloge
+    float armsMultiplier = 1;
+
     float timer = 120;
     float shortArmRotation = 0;
     float longArmRotation = 0;
@@ -24,12 +27,13 @@ public class Clock : MonoBehaviour
         RotateArms();
     }
 
+    //aiguilles de l'horloge
     void RotateArms()
     {
         shortArmRotation -= Time.deltaTime;
         longArmRotation -= Time.deltaTime * 60;
 
-        shortArm.transform.rotation = Quaternion.Euler(0, 0, shortArmRotation);
-        longArm.transform.rotation = Quaternion.Euler(0, 0, longArmRotation);
+        shortArm.transform.rotation = Quaternion.Euler(0, 0, shortArmRotation * armsMultiplier);
+        longArm.transform.rotation = Quaternion.Euler(0, 0, longArmRotation * armsMultiplier);
     }
 }

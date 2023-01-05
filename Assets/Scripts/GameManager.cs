@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         get
         {
             if (instance == null)
-                Debug.LogError("AudioManager instance not found");
+                Debug.LogError("GameManager instance not found");
 
             return instance;
         }
@@ -31,19 +31,40 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    //allumer et éteindre la lumière
     public void SwitchLight()
     {
         Light.SwitchLight();
     }
 
+    //voir si la lumière est allumée
+    public bool GetLightState()
+    {
+        return Light.lightState;
+    }
+
+    //allumer et éteindre la console
     public void SwitchConsole()
     {
         Console.SwitchState();
     }
 
+    //voir le timer
     public float GetTime()
     {
         return NightTimer;
+    }
+
+    //lancer une partie
+    public void Play()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    //retour au  menu
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     void Update()
@@ -55,6 +76,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //fin de jeu
     void GameOver()
     {
         Time.timeScale = 0;

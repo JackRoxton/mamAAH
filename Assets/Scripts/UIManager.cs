@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    //si l'uimanager commence au menu principal (debug)
+    public bool startInMenu = false;
+
     [SerializeField]
     GameObject MainMenuPanel = null;
     [SerializeField]
@@ -12,7 +15,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject GameOverPanel = null;
 
-
+    [SerializeField]
+    Button PlayButton = null;
     [SerializeField]
     Button LightButton = null;
     [SerializeField]
@@ -28,7 +32,7 @@ public class UIManager : MonoBehaviour
         get
         {
             if (instance == null)
-                Debug.LogError("AudioManager instance not found");
+                Debug.LogError("UIManager instance not found");
 
             return instance;
         }
@@ -45,26 +49,49 @@ public class UIManager : MonoBehaviour
     {
         LightButton.onClick.AddListener(SwitchLight);
         DSButton.onClick.AddListener(SwitchConsole);
-        //GameOverButton.onClick.AddListener();
+        GameOverButton.onClick.AddListener(BackToMenu);
+        PlayButton.onClick.AddListener(Play);
 
         GameOverPanel.SetActive(false);
+        if (startInMenu)
+        {
+            GamePanel.SetActive(false);
+        }
+        else
+        {
+            MainMenuPanel.SetActive(false);
+        }
     }
 
+    //allumer et éteindre la lumière
     void SwitchLight()
     {
         GameManager.Instance.SwitchLight();
     }
 
+    // allumer et éteindre la console
     void SwitchConsole()
     {
         GameManager.Instance.SwitchConsole();
     }
 
+    // retour au menu
     void BackToMenu()
     {
-
+        GamePanel.SetActive(false);
+        GameOverPanel.SetActive(false);
+        MainMenuPanel.SetActive(true);
     }
 
+    //lancer la partie
+    void Play()
+    {
+        GameManager.Instance.Play();
+        MainMenuPanel.SetActive(false);
+        GamePanel.SetActive(true);
+    }
+
+    //fin de jeu
     public void GameOver()
     {
         GamePanel.SetActive(false);

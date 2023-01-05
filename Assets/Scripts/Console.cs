@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Console : MonoBehaviour
 {
-
+    //état allumé éteint
     bool state = false;
 
     void Start()
@@ -17,6 +17,8 @@ public class Console : MonoBehaviour
         
     }
 
+
+    //allumer et éteindre la lumière
     public void SwitchState()
     {
         if (state)
