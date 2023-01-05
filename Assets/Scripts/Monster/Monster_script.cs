@@ -41,8 +41,8 @@ public class Monster_script : MonoBehaviour
         {
             TV.GetComponent<SpriteRenderer>().color = Color.white;
             transform.localScale = Vector3.one * Mathf.Lerp(3, 10, advance - 2);
-
-        }
+            if (advance >= 3) GameManager.Instance.GameOver();
+        }        
     }
 
     public void UpdateLight(bool val)
