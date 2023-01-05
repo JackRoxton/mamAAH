@@ -5,9 +5,9 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     [SerializeField]
-    AudioSource source;
-
-    //AudioClip
+    AudioSource source = null;
+    [SerializeField]
+    AudioClip footsteps= null, scratching = null;
 
     private static AudioManager instance;
     public static AudioManager Instance
@@ -28,10 +28,19 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    //playambient
-
-    public void Play()
+    //jouer les bruits d'ambience
+    public void PlayAmbient()
     {
 
+    }
+
+    public void PlayScratching()
+    {
+        source.PlayOneShot(scratching);
+    }
+
+    public void PlayFootsteps()
+    {
+        source.PlayOneShot(footsteps);
     }
 }

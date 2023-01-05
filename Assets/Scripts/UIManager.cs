@@ -9,26 +9,19 @@ public class UIManager : MonoBehaviour
     public bool startInMenu = false;
 
     [SerializeField]
-    GameObject MainMenuPanel = null;
-    [SerializeField]
-    GameObject CreditsPanel = null;
-    [SerializeField]
-    GameObject GamePanel = null;
-    [SerializeField]
-    GameObject GameOverPanel = null;
+    GameObject MainMenuPanel = null,
+        CreditsPanel = null,
+        GamePanel = null,
+        GameOverPanel = null;
 
     [SerializeField]
-    Button PlayButton = null;
-    [SerializeField]
-    Button CreditsButton = null;
-    [SerializeField]
-    Button CreditsBackButton = null;
-    [SerializeField]
-    Button LightButton = null;
-    [SerializeField]
-    Button DSButton = null;
-    [SerializeField]
-    Button GameOverButton = null;
+    Button PlayButton = null,
+        CreditsButton = null,
+        CreditsBackButton = null,
+        LightButton = null,
+        DSButton = null,
+        GameOverButton = null,
+        QuitButton = null;
 
     [SerializeField]
     Text GameOverText = null;
@@ -72,6 +65,7 @@ public class UIManager : MonoBehaviour
         PlayButton.onClick.AddListener(Play);
         CreditsButton.onClick.AddListener(Credits);
         CreditsBackButton.onClick.AddListener(CreditsBack);
+        QuitButton.onClick.AddListener(Quit);
 
         GameOverPanel.SetActive(false);
     }
@@ -133,5 +127,10 @@ public class UIManager : MonoBehaviour
         GameOverText.text = "Félicitations, vous survivez pour cette nuit.";
         GamePanel.SetActive(false);
         GameOverPanel.SetActive(true);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
