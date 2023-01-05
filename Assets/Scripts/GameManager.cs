@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    LightBulb Light;
+    public LightBulb Light;
     [SerializeField]
-    Console Console;
+    public Console Console;
     [SerializeField]
     Mum_script mum;
     
