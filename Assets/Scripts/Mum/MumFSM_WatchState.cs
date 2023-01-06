@@ -14,6 +14,9 @@ public class MumFSM_WatchState : FSM_BaseState
         mum.canHear = true;
         GameManager.Instance.MumIsComing();
         GameManager.Instance.MumIsWatching();
+        mum.SetSprite(mum.watchSprite);
+        mum.flipSprite(false);
+
     }
 
     public override void Update(Mum_script mum)
@@ -23,6 +26,6 @@ public class MumFSM_WatchState : FSM_BaseState
             mum.ChangeState(MumState.Patrol);
         if (timer < 1.6f)
             if (GameManager.Instance.isVulnerable())
-                GameManager.Instance.GameWon();
+                GameManager.Instance.GameOverMother(mum);
     }
 }

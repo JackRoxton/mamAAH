@@ -11,8 +11,10 @@ public class Mum_script : MonoBehaviour
     public Sprite doorOpen;
     public Sprite doorClosed;
     
-    public Sprite mumGood;
-    public Sprite mumMad;
+    public Sprite patrolSprite;
+    public Sprite watchSprite;
+    public Sprite weirdSprite;
+    public Sprite madSprite;
 
     [SerializeField] private AnimationCurve scaleCurve;
 
@@ -50,7 +52,6 @@ public class Mum_script : MonoBehaviour
         {
             GameManager.Instance.MumIsGone();
             door.GetComponent<SpriteRenderer>().sprite = doorClosed;
-            GetComponent<SpriteRenderer>().sprite = mumGood;
         }
         switch (newState)    
         {
@@ -68,8 +69,7 @@ public class Mum_script : MonoBehaviour
             case MumState.Watch:
                 if (checkCoroutine != null) StopCoroutine(checkCoroutine);
                 AIstate = watchState;
-                door.GetComponent<SpriteRenderer>().sprite = doorOpen;
-                GetComponent<SpriteRenderer>().sprite = mumMad;
+                door.GetComponent<SpriteRenderer>().sprite = doorOpen;                
                 break;
         }
         AIstate.OnStart(this);
@@ -78,7 +78,7 @@ public class Mum_script : MonoBehaviour
     public void ComingToWatchYou()
     {
         StopCoroutine(checkCoroutine);
-        patrolState.MoveToDoor();
+        patrolState.MoveToDoor(this);
         GameManager.Instance.MumIsComing();
         speed = 3;
     }
@@ -109,5 +109,18 @@ public class Mum_script : MonoBehaviour
         }
         if (AIstate == patrolState && !patrolState.MovingIntoDoor())
         ComingToWatchYou();
+    }
+
+    public void SetSprite(Sprite s)
+    {
+        GetComponent<SpriteRenderer>().sprite = s;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = s;
+    }
+
+    public void flipSprite(bool val)
+    {
+
+        GetComponent<SpriteRenderer>().flipX = val;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = val;
     }
 }

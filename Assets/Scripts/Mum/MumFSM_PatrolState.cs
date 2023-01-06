@@ -17,7 +17,7 @@ public class MumFSM_PatrolState : FSM_BaseState
     {
         mum.canHear = true;
         mum.canSee = true;
-        ChangeDestination();
+        ChangeDestination(mum);
     }
 
     public override void Update(Mum_script mum)
@@ -53,17 +53,21 @@ public class MumFSM_PatrolState : FSM_BaseState
                 timer = 2.0f;
                 mum.canHear = false;
                 mum.canSee = false;
-                ChangeDestination();
+                ChangeDestination(mum);
             }
     }
 
-    private void ChangeDestination()
+    private void ChangeDestination(Mum_script mum)
     {
-        moveTo = Random.Range(0, 2) == 0 ? hideRight : hideLeft;        
+        int rand = Random.Range(0, 2);
+        moveTo = rand == 0 ? hideRight : hideLeft;
+        mum.SetSprite(mum.patrolSprite);
+        mum.flipSprite(rand == 0 ? true : false);
     }
-    public void MoveToDoor()
+    public void MoveToDoor(Mum_script mum)
     {
         moveTo = door;
+        mum.SetSprite(mum.madSprite);
     }
     public bool MovingIntoDoor()
     {

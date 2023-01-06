@@ -124,8 +124,9 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.GameOver();
     }
 
-    public void GameOverMother()
+    public void GameOverMother(Mum_script mum)
     {
+        mum.SetSprite(mum.madSprite);
         Time.timeScale = 0;
         UIManager.Instance.GameOver();
     }
