@@ -40,7 +40,7 @@ public class Mum_script : MonoBehaviour
 
     private void Update()
     {
-        if ((door.transform.position - transform.position).magnitude < 1.5f)
+        if ((door.transform.position - transform.position).magnitude < 1.1f)
             canSee = false;
         AIstate.Update(this);
         float distanceBtwHides = Vector3.Distance(hideLeft.transform.position, hideRight.transform.position);
@@ -125,15 +125,5 @@ public class Mum_script : MonoBehaviour
     {
         GetComponent<SpriteRenderer>().flipX = val;
         transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = val;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-            Debug.Log("Collide!");
-        if (collision.gameObject == door)
-        {
-            Debug.Log("Door!");
-            canSee = false;
-        }
     }
 }

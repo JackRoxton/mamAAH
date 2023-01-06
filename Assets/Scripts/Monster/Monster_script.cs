@@ -65,7 +65,7 @@ public class Monster_script : MonoBehaviour
     {
         if (mumIsHere) return;
         advanceTarget = val ? 1 : 3;
-        advanceRate = .2f;
+        advanceRate = advanceTarget == 1 ? .5f : .2f;
     }
 
     public void MumIsComing(bool val)
