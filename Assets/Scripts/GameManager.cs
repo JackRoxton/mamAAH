@@ -126,14 +126,14 @@ public class GameManager : MonoBehaviour
     public void GameOverMonster()
     {
         Time.timeScale = 0;
-        UIManager.Instance.GameOver();
+        UIManager.Instance.GameOverMonster();
     }
 
     public void GameOverMother(Mum_script mum)
     {
         mum.SetSprite(mum.madSprite);
         Time.timeScale = 0;
-        UIManager.Instance.GameOver();
+        UIManager.Instance.GameOverMother();
     }
 
     public void GameWon()
