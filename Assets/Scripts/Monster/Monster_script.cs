@@ -31,7 +31,6 @@ public class Monster_script : MonoBehaviour
         advance = Mathf.Clamp(advanceTarget, advance - advanceRate * Time.deltaTime, advance + advanceRate * Time.deltaTime);
         if (advance < 1)
         {
-            Debug.Log(TV.transform.parent.name);
             transform.position = Vector3.Lerp(underTheBed.transform.position, nextToTheBed.transform.position, advance);
             transform.localScale = Vector3.one;
             TV.GetComponent<SpriteRenderer>().color = Color.black;
