@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a04d213b1a89c46804d4906bdb9904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  state: 1
   light: {fileID: 2119916212618103088}
   sprites: {fileID: 2119916213080421412}
 --- !u!61 &2119916212092651303
