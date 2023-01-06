@@ -50,6 +50,7 @@ MonoBehaviour:
   creak: {fileID: 8300000, guid: 126ae3823d6b73e44aed51bf7e3403c7, type: 3}
   wood: {fileID: 8300000, guid: c3f1b0b03bb35654dbb0972f8cb72b90, type: 3}
   window: {fileID: 8300000, guid: bae79e7daeae7c341b748a6b7af0449c, type: 3}
+  win: {fileID: 8300000, guid: 3758fa36530a4cb4788abacfb35dd8ba, type: 3}
 --- !u!82 &6701419327872517197
 AudioSource:
   m_ObjectHideFlags: 0
