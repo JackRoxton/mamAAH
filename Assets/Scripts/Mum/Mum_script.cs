@@ -43,7 +43,8 @@ public class Mum_script : MonoBehaviour
         AIstate.Update(this);
         float distanceBtwHides = Vector3.Distance(hideLeft.transform.position, hideRight.transform.position);
         float distanceToRight = Vector3.Distance(transform.position, hideRight.transform.position);
-        transform.localScale = Vector3.one * scaleCurve.Evaluate(distanceToRight / distanceBtwHides);
+        transform.localScale = Vector3.one * Mathf.Lerp(15, 5, distanceToRight / distanceBtwHides);
+            //scaleCurve.Evaluate(distanceToRight / distanceBtwHides);
     }
 
     public void ChangeState(MumState newState)
@@ -52,7 +53,8 @@ public class Mum_script : MonoBehaviour
         {
             GameManager.Instance.MumIsGone();
             door.GetComponent<SpriteRenderer>().sprite = doorClosed;
-        }
+            GetComponent<SpriteRenderer>().sortingOrder = -5;
+        }        
         switch (newState)    
         {
             case MumState.Patrol:

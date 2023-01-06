@@ -16,7 +16,7 @@ public class MumFSM_WatchState : FSM_BaseState
         GameManager.Instance.MumIsWatching();
         mum.SetSprite(mum.watchSprite);
         mum.flipSprite(false);
-
+        mum.GetComponent<SpriteRenderer>().sortingOrder = 1;
     }
 
     public override void Update(Mum_script mum)
