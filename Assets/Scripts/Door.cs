@@ -21,4 +21,7 @@ public class Door : MonoBehaviour
     {
         this.GetComponent<SpriteRenderer>().sprite = Closed;
     }
+
+
+
 }
