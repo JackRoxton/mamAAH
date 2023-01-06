@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
         GameOverPanel = null,
         WinPanel = null,
         MotherPanel = null,
-        MonsterPanel = null;
+        MonsterPanel = null,
+        TutoPanel = null;
 
     [SerializeField]
     Button PlayButton = null,
@@ -24,7 +25,9 @@ public class UIManager : MonoBehaviour
         LightButton = null,
         DSButton = null,
         GameOverButton = null,
-        QuitButton = null;
+        QuitButton = null,
+        TutoButton = null,
+        TutoBackButton = null;
 
 
     private static UIManager instance;
@@ -54,6 +57,7 @@ public class UIManager : MonoBehaviour
             MainMenuPanel.SetActive(false);
         }
         CreditsPanel.SetActive(false);
+        TutoPanel.SetActive(false);
     }
 
     private void Start()
@@ -65,8 +69,11 @@ public class UIManager : MonoBehaviour
         CreditsButton.onClick.AddListener(Credits);
         CreditsBackButton.onClick.AddListener(CreditsBack);
         QuitButton.onClick.AddListener(Quit);
+        TutoButton.onClick.AddListener(Tuto);
+        TutoBackButton.onClick.AddListener(TutoBack);
 
         GameOverPanel.SetActive(false);
+        
     }
 
     //allumer et éteindre la lumière
@@ -99,6 +106,18 @@ public class UIManager : MonoBehaviour
         MainMenuPanel.SetActive(false);
         GamePanel.SetActive(true);
         GameManager.Instance.Play();
+    }
+
+    void Tuto()
+    {
+        TutoPanel.SetActive(true);
+        MainMenuPanel.SetActive(false);
+    }
+
+    void TutoBack()
+    {
+        TutoPanel.SetActive(false);
+        MainMenuPanel.SetActive(true);
     }
 
     //voir les crédits
