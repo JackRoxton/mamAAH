@@ -163,6 +163,7 @@ public class GameManager : MonoBehaviour
         GameOver = true;
         Time.timeScale = 0;
         UIManager.Instance.GameWon();
+        AudioManager.Instance.PlayWin();
     }
 
 }

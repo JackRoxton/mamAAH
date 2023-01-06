@@ -15,6 +15,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioClip creak = null, wood = null, window = null;
 
+    [SerializeField]
+    AudioClip win = null;
+
     float scratchTimer = 0;
     float ambientTimer = 8;
 
@@ -75,6 +78,11 @@ public class AudioManager : MonoBehaviour
     public void PlayFootsteps()
     {
         source.PlayOneShot(footsteps);
+    }
+
+    public void PlayWin()
+    {
+        source.PlayOneShot(win);
     }
 
     public void Play(AudioClip c)
