@@ -12,7 +12,10 @@ public class UIManager : MonoBehaviour
     GameObject MainMenuPanel = null,
         CreditsPanel = null,
         GamePanel = null,
-        GameOverPanel = null;
+        GameOverPanel = null,
+        WinPanel = null,
+        MotherPanel = null,
+        MonsterPanel = null;
 
     [SerializeField]
     Button PlayButton = null,
@@ -22,10 +25,6 @@ public class UIManager : MonoBehaviour
         DSButton = null,
         GameOverButton = null,
         QuitButton = null;
-
-    [SerializeField]
-    Text GameOverText = null;
-
 
 
     private static UIManager instance;
@@ -88,6 +87,9 @@ public class UIManager : MonoBehaviour
         GamePanel.SetActive(false);
         GameOverPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
+        WinPanel.SetActive(false);
+        MotherPanel.SetActive(false);
+        MonsterPanel.SetActive(false);
         GameManager.Instance.BackToMenu();
     }
 
@@ -116,17 +118,30 @@ public class UIManager : MonoBehaviour
     //mauvaise fin de jeu
     public void GameOver()
     {
-        GameOverText.text = "Dommage, vous vous êtes fait attraper...";
         GamePanel.SetActive(false);
         GameOverPanel.SetActive(true);
+    }
+
+    public void GameOverMonster()
+    {
+        GamePanel.SetActive(false);
+        GameOverPanel.SetActive(true);
+        MonsterPanel.SetActive(true);
+    }
+
+    public void GameOverMother()
+    {
+        GamePanel.SetActive(false);
+        GameOverPanel.SetActive(true);
+        MotherPanel.SetActive(true);
     }
 
     //fin où on a survécu à la nuit
     public void GameWon()
     {
-        GameOverText.text = "Félicitations, vous survivez pour cette nuit.";
         GamePanel.SetActive(false);
         GameOverPanel.SetActive(true);
+        WinPanel.SetActive(true);
     }
 
     public void Quit()

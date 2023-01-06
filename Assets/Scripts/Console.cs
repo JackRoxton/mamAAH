@@ -7,14 +7,12 @@ public class Console : MonoBehaviour
     //état allumé éteint
     public bool state = false;
 
+    [SerializeField]
+    Light light = null;
+
     void Start()
     {
         GameManager.Instance.Console = this;
-    }
-
-    void Update()
-    {
-        
     }
 
     private void OnMouseUp()
@@ -29,11 +27,13 @@ public class Console : MonoBehaviour
         {
             //this.GetComponent<SpriteRenderer>().color = Color.black;
             state = false;
+            light.gameObject.SetActive(false);
         }
         else
         {
             //this.GetComponent<SpriteRenderer>().color = Color.white;
             state = true;
+            light.gameObject.SetActive(true);
         }
     }
 
