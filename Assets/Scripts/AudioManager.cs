@@ -77,5 +77,10 @@ public class AudioManager : MonoBehaviour
         source.PlayOneShot(footsteps);
     }
 
+    public void Play(AudioClip c)
+    {
+        source.PlayOneShot(c);
+        Debug.Log("Dead);");
+    }
 
 }

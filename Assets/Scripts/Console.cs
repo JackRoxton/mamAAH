@@ -16,6 +16,8 @@ public class Console : MonoBehaviour
     Vector3 basePos;
     Vector3 hidePos;
 
+    public GameObject back;
+
     void Start()
     {
         GameManager.Instance.Console = this;
@@ -27,6 +29,16 @@ public class Console : MonoBehaviour
     private void OnMouseUp()
     {
         GameManager.Instance.SwitchConsole();
+    }
+
+    private void OnMouseEnter()
+    {
+        back.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        back.SetActive(false);
     }
 
     //allumer et éteindre la lumière

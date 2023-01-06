@@ -14,7 +14,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Monster_script monster;
 
+    public AudioClip MonstDead;
+    public AudioClip MomDead;
+
     float NightTimer = 120;
+
+    bool GameOver = false;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -102,6 +107,7 @@ public class GameManager : MonoBehaviour
     //lancer une partie
     public void Play()
     {
+        GameOver = false;
         SceneManager.LoadScene("MainScene");
         Time.timeScale = 1;
     }
@@ -125,19 +131,27 @@ public class GameManager : MonoBehaviour
     //fin de jeu
     public void GameOverMonster()
     {
+        if (GameOver) return;
+        GameOver = true;
         Time.timeScale = 0;
         UIManager.Instance.GameOverMonster();
+        AudioManager.Instance.Play(MonstDead);
     }
 
     public void GameOverMother(Mum_script mum)
     {
+        if (GameOver) return;
+        GameOver = true;
         mum.SetSprite(mum.madSprite);
         Time.timeScale = 0;
         UIManager.Instance.GameOverMother();
+        AudioManager.Instance.Play(MomDead);
     }
 
     public void GameWon()
     {
+        if (GameOver) return;
+        GameOver = true;
         Time.timeScale = 0;
         UIManager.Instance.GameWon();
     }
