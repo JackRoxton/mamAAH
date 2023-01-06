@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public AudioClip MomDead;
 
     float NightTimer = 120;
-
+    private bool win = false;
     bool GameOver = false;
 
     private static GameManager instance;
@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
     //lancer une partie
     public void Play()
     {
+        win = false;
         GameOver = false;
         SceneManager.LoadScene("MainScene");
         Time.timeScale = 1;
@@ -121,6 +122,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (win) return;
         NightTimer -= Time.deltaTime;
         if(NightTimer <= 0)
         {
@@ -157,6 +159,7 @@ public class GameManager : MonoBehaviour
     public void GameWon()
     {
         if (GameOver) return;
+        win = true;
         GameOver = true;
         Time.timeScale = 0;
         UIManager.Instance.GameWon();
