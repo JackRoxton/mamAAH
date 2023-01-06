@@ -126,6 +126,12 @@ public class GameManager : MonoBehaviour
         {
             GameWon();
         }
+        if (GameOver)
+        {
+            Camera.main.transform.position = new Vector3(0, 1.6f, -10) + new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0);
+        }
+        else
+            Camera.main.transform.position = new Vector3(0, 1.6f, - 10);
     }
 
     //fin de jeu
