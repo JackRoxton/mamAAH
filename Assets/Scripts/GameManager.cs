@@ -35,6 +35,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
+    private void Start()
+    {
+        SwitchConsole();
+    }
+
     //allumer et éteindre la lumière
     public void SwitchLight()
     {

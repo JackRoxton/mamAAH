@@ -35,12 +35,14 @@ public class Monster_script : MonoBehaviour
             transform.position = Vector3.Lerp(underTheBed.transform.position, nextToTheBed.transform.position, advance);
             transform.localScale = Vector3.one;
             TV.GetComponent<SpriteRenderer>().color = Color.black;
+            GetComponent<SpriteRenderer>().sortingOrder = -1;
         }
         else if (advance < 2)
         {
             transform.position = Vector3.Lerp(nextToTheBed.transform.position, OnTheBed.transform.position, advance - 1);
             transform.localScale = Vector3.one;
             TV.GetComponent<SpriteRenderer>().color = Color.black;
+            GetComponent<SpriteRenderer>().sortingOrder = -1;
         }
         else
         {
@@ -50,9 +52,8 @@ public class Monster_script : MonoBehaviour
             TV.GetComponent<SpriteRenderer>().color = new Color(t + r * .1f, t, t);
             AudioManager.Instance.PlayScratching();
             transform.localScale = Vector3.one * scaleCurve.Evaluate(advance - 2);
-            Vector3 minusZ = transform.position;
-            minusZ.z = Mathf.Lerp(-.9f, -2, scaleCurve.Evaluate(advance - 2) * 100);
-            transform.position = minusZ;
+                     
+            GetComponent<SpriteRenderer>().sortingOrder = 13;
             if (advance >= 3) GameManager.Instance.GameOverMonster();
             PostProcessSript.Instance.vignetteValue = (advance - 2);
             Vector3 TVpos = TV.transform.parent.position;
