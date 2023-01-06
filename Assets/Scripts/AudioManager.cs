@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     AudioClip creak = null, wood = null, window = null;
 
+    float scratchTimer = 0;
     float ambientTimer = 8;
 
     private static AudioManager instance;
@@ -38,6 +39,9 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
+        if(scratchTimer > 0)
+        scratchTimer -= Time.deltaTime;
+
         ambientTimer -= Time.deltaTime;
         if (ambientTimer <= 0)
         {
@@ -61,6 +65,10 @@ public class AudioManager : MonoBehaviour
 
     public void PlayScratching()
     {
+        if (scratchTimer > 0)
+            return;
+
+        scratchTimer = scratching.length;
         source.PlayOneShot(scratching);
     }
 

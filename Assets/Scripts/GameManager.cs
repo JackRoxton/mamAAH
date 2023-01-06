@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
         if (monster.advance > 2)
         {
             Debug.Log("VICTORY");
+            GameWon();
             //VICTORY
         }
     }
@@ -117,7 +118,13 @@ public class GameManager : MonoBehaviour
     }
 
     //fin de jeu
-    public void GameOver()
+    public void GameOverMonster()
+    {
+        Time.timeScale = 0;
+        UIManager.Instance.GameOver();
+    }
+
+    public void GameOverMother()
     {
         Time.timeScale = 0;
         UIManager.Instance.GameOver();

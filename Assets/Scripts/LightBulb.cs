@@ -8,7 +8,7 @@ public class LightBulb : MonoBehaviour
     Light RoomLight = null;
 
     //état allumé éteint
-    public bool lightState = false;
+    public bool lightState = true;
 
     Animator animator = null;
 
@@ -45,13 +45,13 @@ public class LightBulb : MonoBehaviour
         {
             RoomLight.intensity = 0;
             lightState = false;
-            this.GetComponent<SpriteRenderer>().color = Color.black;
+            //this.GetComponent<SpriteRenderer>().color = Color.black;
         }
         else
         {
-            RoomLight.intensity = 10;
+            RoomLight.intensity = 8;
             lightState = true;
-            this.GetComponent<SpriteRenderer>().color = Color.yellow;
+            //this.GetComponent<SpriteRenderer>().color = Color.yellow;
         }
     }
 }

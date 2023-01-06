@@ -55,6 +55,7 @@ public class Mum_script : MonoBehaviour
         switch (newState)    
         {
             case MumState.Patrol:
+                AudioManager.Instance.PlayFootsteps();
                 AIstate = patrolState;
                 checkCoroutine = StartCoroutine(Check());
                 GameManager.Instance.MumIsGone();

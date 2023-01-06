@@ -23,6 +23,6 @@ public class MumFSM_WatchState : FSM_BaseState
             mum.ChangeState(MumState.Patrol);
         if (timer < 1.6f)
             if (GameManager.Instance.isVulnerable())
-                GameManager.Instance.GameOver();
+                GameManager.Instance.GameWon();
     }
 }

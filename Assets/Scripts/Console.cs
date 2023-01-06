@@ -27,12 +27,12 @@ public class Console : MonoBehaviour
     {
         if (state)
         {
-            this.GetComponent<SpriteRenderer>().color = Color.black;
+            //this.GetComponent<SpriteRenderer>().color = Color.black;
             state = false;
         }
         else
         {
-            this.GetComponent<SpriteRenderer>().color = Color.white;
+            //this.GetComponent<SpriteRenderer>().color = Color.white;
             state = true;
         }
     }
