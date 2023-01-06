@@ -45,7 +45,7 @@ public class Monster_script : MonoBehaviour
         {
             float t = TVcurve.Evaluate(advance - 2);
             float r = 1 - t;
-            TVLight.intensity = TVcurve.Evaluate(advance - 2) * 3;
+            TVLight.intensity = TVcurve.Evaluate(advance - 2) * 12;
             TV.GetComponent<SpriteRenderer>().color = new Color(t + r * .1f, t, t);
             AudioManager.Instance.PlayScratching();
             transform.localScale = Vector3.one * scaleCurve.Evaluate(advance - 2);
