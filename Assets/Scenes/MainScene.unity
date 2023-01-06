@@ -633,6 +633,8 @@ MonoBehaviour:
   Console: {fileID: 568041035}
   mum: {fileID: 322907274}
   monster: {fileID: 1161657222}
+  MonstDead: {fileID: 8300000, guid: a278a31e5d84d084aa33a00e1db480eb, type: 3}
+  MomDead: {fileID: 8300000, guid: a278a31e5d84d084aa33a00e1db480eb, type: 3}
 --- !u!4 &698335762
 Transform:
   m_ObjectHideFlags: 0
@@ -2020,7 +2022,7 @@ PrefabInstance:
     - target: {fileID: 6701419327872517197, guid: 2573c44ab89c740458e3771a8bf60650,
         type: 3}
       propertyPath: Loop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6701419327872517197, guid: 2573c44ab89c740458e3771a8bf60650,
         type: 3}
