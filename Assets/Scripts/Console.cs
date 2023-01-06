@@ -23,10 +23,6 @@ public class Console : MonoBehaviour
         hidePos = new Vector3(basePos.x, basePos.y - 5);
     }
 
-    private void OnMouseDown()
-    {
-        GameManager.Instance.SwitchConsole();
-    }
 
     private void OnMouseUp()
     {
@@ -39,13 +35,13 @@ public class Console : MonoBehaviour
         if (state)
         {
             state = false;
-            //light.gameObject.SetActive(false);
+            light.gameObject.SetActive(false);
             sprites.transform.position = hidePos;
         }
         else
         {
             state = true;
-            //light.gameObject.SetActive(true);
+            light.gameObject.SetActive(true);
             sprites.transform.position = basePos;
         }
     }
